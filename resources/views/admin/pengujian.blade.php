@@ -14,22 +14,18 @@
 
     <section id="home">
         <div class="container border-b-4 border-black mx-auto my-6">
-            <h2 class="text-center uppercase font-serif text-4xl text-black font-bold">Data Training</h2>
-        </div>
-        <div class="container mx-auto">
-            <a href="" class="py-1 rounded-3xl px-4 font-serif text-black hover:text-white shadow-lg" style="background-color: rgba(213, 221, 209, 1)">
-                + Tambah Data
-            </a>
+            <h2 class="text-center uppercase font-serif text-4xl text-black font-bold">Data Pengujian</h2>
         </div>
     </section>
+
     <section id="table">
         <div class="flex mx-auto mt-5 w-full">
             <div class="w-full rounded-3xl overflow-hidden shadow-lg">
                 <div class="text-white" style="background-color: rgba(64, 94, 79, 1)">
-                    <h1 class="py-2 px-4">Data Training Verbal</h1>
+                    <h1 class="py-2 px-4">Soal Training Verbal</h1>
                 </div>
                 <div class="w-full overflow-auto">
-                    <div class="mx-6 py-2">
+                    <div class="mx-10 py-2">
                         <table class="divide-y divide-gray-300 w-full" id="dataTable">
                             <thead style="background-color: rgba(64, 94, 79, 1)">
                                 <tr>
@@ -37,43 +33,22 @@
                                         ID
                                     </th>
                                     <th class="px-6 py-2 text-xs text-white">
-                                        NIM
+                                        Tipe
                                     </th>
                                     <th class="px-6 py-2 text-xs text-white">
-                                        Nama
+                                        Soal
                                     </th>
                                     <th class="px-6 py-2 text-xs text-white">
-                                        Soal1
+                                        A
                                     </th>
                                     <th class="px-6 py-2 text-xs text-white">
-                                        Soal2
+                                        B
                                     </th>
                                     <th class="px-6 py-2 text-xs text-white">
-                                        Soal3
+                                        C
                                     </th>
                                     <th class="px-6 py-2 text-xs text-white">
-                                        Soal4
-                                    </th>
-                                    <th class="px-6 py-2 text-xs text-white">
-                                        Soal5
-                                    </th>
-                                    <th class="px-6 py-2 text-xs text-white">
-                                        Soal6
-                                    </th>
-                                    <th class="px-6 py-2 text-xs text-white">
-                                        Soal7
-                                    </th>
-                                    <th class="px-6 py-2 text-xs text-white">
-                                        Soal8
-                                    </th>
-                                    <th class="px-6 py-2 text-xs text-white">
-                                        Soal9
-                                    </th>
-                                    <th class="px-6 py-2 text-xs text-white">
-                                        Soal10
-                                    </th>
-                                    <th class="px-6 py-2 text-xs text-white">
-                                        Hasil
+                                        D
                                     </th>
                                 </tr>
                             </thead>
@@ -85,63 +60,32 @@
                                         </td>
                                         <td class="px-6 py-4">
                                             <div class="text-xs text-gray-900">
-                                                {{ $dt->nim }}
+                                                {{ $dt->tipe }}
+                                            </div>
+                                        </td>
+                                        <td class="px-6 py-4">
+                                            <div class="text-xs text-left text-gray-900">
+                                                {{ $dt->soal }}
                                             </div>
                                         </td>
                                         <td class="px-6 py-4">
                                             <div class="text-xs text-gray-900">
-                                                {{ $dt->nama }}
+                                                {{ $dt->a }}
                                             </div>
                                         </td>
                                         <td class="px-6 py-4">
                                             <div class="text-xs text-gray-900">
-                                                {{ $dt->Soal1 }}
-                                            </div>
-                                        </td>
-                                        <td class="px-6 py-4 text-xs text-gray-500">
-                                            {{ $dt->Soal2 }}
-                                        </td>
-                                        <td class="px-6 py-4 text-xs text-gray-500">
-                                            {{ $dt->Soal3 }}
-                                        </td>
-                                        <td class="px-6 py-4">
-                                            <div class="text-xs text-gray-500">
-                                                {{ $dt->Soal4 }}
+                                                {{ $dt->b }}
                                             </div>
                                         </td>
                                         <td class="px-6 py-4">
-                                            <div class="text-xs text-gray-500">
-                                                {{ $dt->Soal5 }}
+                                            <div class="text-xs text-gray-900">
+                                                {{ $dt->c }}
                                             </div>
                                         </td>
                                         <td class="px-6 py-4">
-                                            <div class="text-xs text-gray-500">
-                                                {{ $dt->Soal6 }}
-                                            </div>
-                                        </td>
-                                        <td class="px-6 py-4">
-                                            <div class="text-xs text-gray-500">
-                                                {{ $dt->Soal7 }}
-                                            </div>
-                                        </td>
-                                        <td class="px-6 py-4">
-                                            <div class="text-xs text-gray-500">
-                                                {{ $dt->Soal8 }}
-                                            </div>
-                                        </td>
-                                        <td class="px-6 py-4">
-                                            <div class="text-xs text-gray-500">
-                                                {{ $dt->Soal9 }}
-                                            </div>
-                                        </td>
-                                        <td class="px-6 py-4">
-                                            <div class="text-xs text-gray-500">
-                                                {{ $dt->Soal10 }}
-                                            </div>
-                                        </td>
-                                        <td class="px-6 py-4">
-                                            <div class="text-xs text-gray-500">
-                                                {{ $dt->Hasil }}
+                                            <div class="text-xs text-gray-900">
+                                                {{ $dt->d }}
                                             </div>
                                         </td>
                                     </tr>
@@ -152,13 +96,13 @@
                 </div>
             </div>
         </div>
-        <div class="flex mx-auto mt-5 w-full">
+        <div class="flex mx-auto mt-10 w-full">
             <div class="w-full rounded-3xl overflow-hidden shadow-lg">
                 <div class="text-white" style="background-color: rgba(64, 94, 79, 1)">
-                    <h1 class="py-2 px-4">Data Training Numerik</h1>
+                    <h1 class="py-2 px-4">Soal Training Bahasa</h1>
                 </div>
                 <div class="w-full overflow-auto">
-                    <div class="mx-6 py-2">
+                    <div class="mx-10 py-2">
                         <table class="divide-y divide-gray-300 w-full" id="dataTable">
                             <thead style="background-color: rgba(64, 94, 79, 1)">
                                 <tr>
@@ -166,47 +110,26 @@
                                         ID
                                     </th>
                                     <th class="px-6 py-2 text-xs text-white">
-                                        NIM
+                                        Tipe
                                     </th>
                                     <th class="px-6 py-2 text-xs text-white">
-                                        Nama
+                                        Soal
                                     </th>
                                     <th class="px-6 py-2 text-xs text-white">
-                                        Soal1
+                                        A
                                     </th>
                                     <th class="px-6 py-2 text-xs text-white">
-                                        Soal2
+                                        B
                                     </th>
                                     <th class="px-6 py-2 text-xs text-white">
-                                        Soal3
+                                        C
                                     </th>
                                     <th class="px-6 py-2 text-xs text-white">
-                                        Soal4
-                                    </th>
-                                    <th class="px-6 py-2 text-xs text-white">
-                                        Soal5
-                                    </th>
-                                    <th class="px-6 py-2 text-xs text-white">
-                                        Soal6
-                                    </th>
-                                    <th class="px-6 py-2 text-xs text-white">
-                                        Soal7
-                                    </th>
-                                    <th class="px-6 py-2 text-xs text-white">
-                                        Soal8
-                                    </th>
-                                    <th class="px-6 py-2 text-xs text-white">
-                                        Soal9
-                                    </th>
-                                    <th class="px-6 py-2 text-xs text-white">
-                                        Soal10
-                                    </th>
-                                    <th class="px-6 py-2 text-xs text-white">
-                                        Hasil
+                                        D
                                     </th>
                                 </tr>
                             </thead>
-                            @foreach ($numerik as $i => $o)
+                            @foreach ($bahasa as $i => $dt)
                                 <tbody class="bg-white divide-y divide-gray-300">
                                     <tr class="text-center whitespace-nowrap">
                                         <td class="px-6 py-4 text-sm text-gray-500">
@@ -214,63 +137,445 @@
                                         </td>
                                         <td class="px-6 py-4">
                                             <div class="text-xs text-gray-900">
-                                                {{ $o->nim }}
+                                                {{ $dt->tipe }}
+                                            </div>
+                                        </td>
+                                        <td class="px-6 py-4">
+                                            <div class="text-xs text-left text-gray-900">
+                                                {{ $dt->soal }}
                                             </div>
                                         </td>
                                         <td class="px-6 py-4">
                                             <div class="text-xs text-gray-900">
-                                                {{ $o->nama }}
+                                                {{ $dt->a }}
                                             </div>
                                         </td>
                                         <td class="px-6 py-4">
                                             <div class="text-xs text-gray-900">
-                                                {{ $o->Soal1 }}
-                                            </div>
-                                        </td>
-                                        <td class="px-6 py-4 text-xs text-gray-500">
-                                            {{ $o->Soal2 }}
-                                        </td>
-                                        <td class="px-6 py-4 text-xs text-gray-500">
-                                            {{ $o->Soal3 }}
-                                        </td>
-                                        <td class="px-6 py-4">
-                                            <div class="text-xs text-gray-500">
-                                                {{ $o->Soal4 }}
+                                                {{ $dt->b }}
                                             </div>
                                         </td>
                                         <td class="px-6 py-4">
-                                            <div class="text-xs text-gray-500">
-                                                {{ $o->Soal5 }}
+                                            <div class="text-xs text-gray-900">
+                                                {{ $dt->c }}
                                             </div>
                                         </td>
                                         <td class="px-6 py-4">
-                                            <div class="text-xs text-gray-500">
-                                                {{ $o->Soal6 }}
+                                            <div class="text-xs text-gray-900">
+                                                {{ $dt->d }}
+                                            </div>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            @endforeach
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="flex mx-auto mt-10 w-full">
+            <div class="w-full rounded-3xl overflow-hidden shadow-lg">
+                <div class="text-white" style="background-color: rgba(64, 94, 79, 1)">
+                    <h1 class="py-2 px-4">Soal Training Numerik</h1>
+                </div>
+                <div class="w-full overflow-auto">
+                    <div class="mx-10 py-2">
+                        <table class="divide-y divide-gray-300 w-full" id="dataTable">
+                            <thead style="background-color: rgba(64, 94, 79, 1)">
+                                <tr>
+                                    <th class="px-6 py-2 text-xs text-white">
+                                        ID
+                                    </th>
+                                    <th class="px-6 py-2 text-xs text-white">
+                                        Tipe
+                                    </th>
+                                    <th class="px-6 py-2 text-xs text-white">
+                                        Soal
+                                    </th>
+                                    <th class="px-6 py-2 text-xs text-white">
+                                        A
+                                    </th>
+                                    <th class="px-6 py-2 text-xs text-white">
+                                        B
+                                    </th>
+                                    <th class="px-6 py-2 text-xs text-white">
+                                        C
+                                    </th>
+                                    <th class="px-6 py-2 text-xs text-white">
+                                        D
+                                    </th>
+                                </tr>
+                            </thead>
+                            @foreach ($numerik as $i => $dt)
+                                <tbody class="bg-white divide-y divide-gray-300">
+                                    <tr class="text-center whitespace-nowrap">
+                                        <td class="px-6 py-4 text-sm text-gray-500">
+                                            {{ ++$i }}
+                                        </td>
+                                        <td class="px-6 py-4">
+                                            <div class="text-xs text-gray-900">
+                                                {{ $dt->tipe }}
                                             </div>
                                         </td>
                                         <td class="px-6 py-4">
-                                            <div class="text-xs text-gray-500">
-                                                {{ $o->Soal7 }}
+                                            <div class="text-xs text-left text-gray-900">
+                                                {{ $dt->soal }}
                                             </div>
                                         </td>
                                         <td class="px-6 py-4">
-                                            <div class="text-xs text-gray-500">
-                                                {{ $o->Soal8 }}
+                                            <div class="text-xs text-gray-900">
+                                                {{ $dt->a }}
                                             </div>
                                         </td>
                                         <td class="px-6 py-4">
-                                            <div class="text-xs text-gray-500">
-                                                {{ $o->Soal9 }}
+                                            <div class="text-xs text-gray-900">
+                                                {{ $dt->b }}
                                             </div>
                                         </td>
                                         <td class="px-6 py-4">
-                                            <div class="text-xs text-gray-500">
-                                                {{ $o->Soal10 }}
+                                            <div class="text-xs text-gray-900">
+                                                {{ $dt->c }}
                                             </div>
                                         </td>
                                         <td class="px-6 py-4">
-                                            <div class="text-xs text-gray-500">
-                                                {{ $o->Hasil }}
+                                            <div class="text-xs text-gray-900">
+                                                {{ $dt->d }}
+                                            </div>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            @endforeach
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="flex mx-auto mt-10 w-full">
+            <div class="w-full rounded-3xl overflow-hidden shadow-lg">
+                <div class="text-white" style="background-color: rgba(64, 94, 79, 1)">
+                    <h1 class="py-2 px-4">Soal Training skolastik</h1>
+                </div>
+                <div class="w-full overflow-auto">
+                    <div class="mx-10 py-2">
+                        <table class="divide-y divide-gray-300 w-full" id="dataTable">
+                            <thead style="background-color: rgba(64, 94, 79, 1)">
+                                <tr>
+                                    <th class="px-6 py-2 text-xs text-white">
+                                        ID
+                                    </th>
+                                    <th class="px-6 py-2 text-xs text-white">
+                                        Tipe
+                                    </th>
+                                    <th class="px-6 py-2 text-xs text-white">
+                                        Soal
+                                    </th>
+                                    <th class="px-6 py-2 text-xs text-white">
+                                        A
+                                    </th>
+                                    <th class="px-6 py-2 text-xs text-white">
+                                        B
+                                    </th>
+                                    <th class="px-6 py-2 text-xs text-white">
+                                        C
+                                    </th>
+                                    <th class="px-6 py-2 text-xs text-white">
+                                        D
+                                    </th>
+                                </tr>
+                            </thead>
+                            @foreach ($skolastik as $i => $dt)
+                                <tbody class="bg-white divide-y divide-gray-300">
+                                    <tr class="text-center whitespace-nowrap">
+                                        <td class="px-6 py-4 text-sm text-gray-500">
+                                            {{ ++$i }}
+                                        </td>
+                                        <td class="px-6 py-4">
+                                            <div class="text-xs text-gray-900">
+                                                {{ $dt->tipe }}
+                                            </div>
+                                        </td>
+                                        <td class="px-6 py-4">
+                                            <div class="text-xs text-left text-gray-900">
+                                                {{ $dt->soal }}
+                                            </div>
+                                        </td>
+                                        <td class="px-6 py-4">
+                                            <div class="text-xs text-gray-900">
+                                                {{ $dt->a }}
+                                            </div>
+                                        </td>
+                                        <td class="px-6 py-4">
+                                            <div class="text-xs text-gray-900">
+                                                {{ $dt->b }}
+                                            </div>
+                                        </td>
+                                        <td class="px-6 py-4">
+                                            <div class="text-xs text-gray-900">
+                                                {{ $dt->c }}
+                                            </div>
+                                        </td>
+                                        <td class="px-6 py-4">
+                                            <div class="text-xs text-gray-900">
+                                                {{ $dt->d }}
+                                            </div>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            @endforeach
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+        {{-- Abstrak --}}
+        <div class="flex mx-auto mt-10 w-full">
+            <div class="w-full rounded-3xl overflow-hidden shadow-lg">
+                <div class="text-white" style="background-color: rgba(64, 94, 79, 1)">
+                    <h1 class="py-2 px-4">Soal Training Abstrak</h1>
+                </div>
+                <div class="w-full overflow-auto">
+                    <div class="mx-10 py-2">
+                        <table class="divide-y divide-gray-300 w-full" id="dataTable">
+                            <thead style="background-color: rgba(64, 94, 79, 1)">
+                                <tr>
+                                    <th class="px-6 py-2 text-xs text-white">
+                                        ID
+                                    </th>
+                                    <th class="px-6 py-2 text-xs text-white">
+                                        Tipe
+                                    </th>
+                                    <th class="px-6 py-2 text-xs text-white">
+                                        Soal
+                                    </th>
+                                    <th class="px-6 py-2 text-xs text-white">
+                                        A
+                                    </th>
+                                    <th class="px-6 py-2 text-xs text-white">
+                                        B
+                                    </th>
+                                    <th class="px-6 py-2 text-xs text-white">
+                                        C
+                                    </th>
+                                    <th class="px-6 py-2 text-xs text-white">
+                                        D
+                                    </th>
+                                </tr>
+                            </thead>
+                            @foreach ($abstrak as $i => $dt)
+                                <tbody class="bg-white divide-y divide-gray-300">
+                                    <tr class="text-center whitespace-nowrap">
+                                        <td class="px-6 py-4 text-sm text-gray-500">
+                                            {{ ++$i }}
+                                        </td>
+                                        <td class="px-6 py-4">
+                                            <div class="text-xs text-gray-900">
+                                                {{ $dt->tipe }}
+                                            </div>
+                                        </td>
+                                        <td class="px-6 py-4">
+                                            <div class="text-xs text-left text-gray-900">
+                                                {{ $dt->soal }}
+                                                <?php
+                                                if($dt->gambar != '-'){
+                                                ?>
+                                                <img src="{{ asset('img/' . $dt->gambar) }}" width="280"
+                                                    height="280">;
+                                                <?php
+                                                }
+                                                ?>
+                                            </div>
+                                        </td>
+                                        <td class="px-6 py-4">
+                                            <div class="text-xs text-gray-900">
+                                                <?php
+                                                if($dt->gambara != '-'){
+                                                ?>
+                                                <img src="{{ asset('img/' . $dt->gambara) }}" width="100"
+                                                    height="100">;
+                                                <?php
+                                                }else{
+                                                    ?>
+                                                {{ $dt->a }}
+                                                <?php
+                                                }
+                                                ?>
+                                            </div>
+                                        </td>
+                                        <td class="px-6 py-4">
+                                            <div class="text-xs text-gray-900">
+                                                <?php
+                                                if($dt->gambarb != '-'){
+                                                ?>
+                                                <img src="{{ asset('img/' . $dt->gambarb) }}" width="100"
+                                                    height="100">;
+                                                <?php
+                                                }else{
+                                                    ?>
+                                                {{ $dt->b }}
+                                                <?php
+                                                }
+                                                ?>
+                                            </div>
+                                        </td>
+                                        <td class="px-6 py-4">
+                                            <div class="text-xs text-gray-900">
+                                                <?php
+                                                if($dt->gambarc != '-'){
+                                                ?>
+                                                <img src="{{ asset('img/' . $dt->gambarc) }}" width="100"
+                                                    height="100">;
+                                                <?php
+                                                }else{
+                                                    ?>
+                                                {{ $dt->c }}
+                                                <?php
+                                                }
+                                                ?>
+                                            </div>
+                                        </td>
+                                        <td class="px-6 py-4">
+                                            <div class="text-xs text-gray-900">
+                                                <?php
+                                                if($dt->gambard != '-'){
+                                                ?>
+                                                <img src="{{ asset('img/' . $dt->gambard) }}" width="100"
+                                                    height="100">;
+                                                <?php
+                                                }else{
+                                                    ?>
+                                                {{ $dt->d }}
+                                                <?php
+                                                }
+                                                ?>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            @endforeach
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="flex mx-auto mt-10 w-full">
+            <div class="w-full rounded-3xl overflow-hidden shadow-lg">
+                <div class="text-white" style="background-color: rgba(64, 94, 79, 1)">
+                    <h1 class="py-2 px-4">Soal Training Spasial</h1>
+                </div>
+                <div class="w-full overflow-auto">
+                    <div class="mx-10 py-2">
+                        <table class="divide-y divide-gray-300 w-full" id="dataTable">
+                            <thead style="background-color: rgba(64, 94, 79, 1)">
+                                <tr>
+                                    <th class="px-6 py-2 text-xs text-white">
+                                        ID
+                                    </th>
+                                    <th class="px-6 py-2 text-xs text-white">
+                                        Tipe
+                                    </th>
+                                    <th class="px-6 py-2 text-xs text-white">
+                                        Soal
+                                    </th>
+                                    <th class="px-6 py-2 text-xs text-white">
+                                        A
+                                    </th>
+                                    <th class="px-6 py-2 text-xs text-white">
+                                        B
+                                    </th>
+                                    <th class="px-6 py-2 text-xs text-white">
+                                        C
+                                    </th>
+                                    <th class="px-6 py-2 text-xs text-white">
+                                        D
+                                    </th>
+                                </tr>
+                            </thead>
+                            @foreach ($spasial as $i => $dt)
+                                <tbody class="bg-white divide-y divide-gray-300">
+                                    <tr class="text-center whitespace-nowrap">
+                                        <td class="px-6 py-4 text-sm text-gray-500">
+                                            {{ ++$i }}
+                                        </td>
+                                        <td class="px-6 py-4">
+                                            <div class="text-xs text-gray-900">
+                                                {{ $dt->tipe }}
+                                            </div>
+                                        </td>
+                                        <td class="px-6 py-4">
+                                            <div class="text-xs text-left text-gray-900">
+                                                {{ $dt->soal }}
+                                                <?php
+                                                if($dt->gambar != '-'){
+                                                ?>
+                                                <img src="{{ asset('img/' . $dt->gambar) }}" width="280"
+                                                    height="280">;
+                                                <?php
+                                                }
+                                                ?>
+                                            </div>
+                                        </td>
+                                        <td class="px-6 py-4">
+                                            <div class="text-xs text-gray-900">
+                                                <?php
+                                                if($dt->gambara != '-'){
+                                                ?>
+                                                <img src="{{ asset('img/' . $dt->gambara) }}" width="100"
+                                                    height="100">;
+                                                <?php
+                                                }else{
+                                                    ?>
+                                                {{ $dt->a }}
+                                                <?php
+                                                }
+                                                ?>
+                                            </div>
+                                        </td>
+                                        <td class="px-6 py-4">
+                                            <div class="text-xs text-gray-900">
+                                                <?php
+                                                if($dt->gambarb != '-'){
+                                                ?>
+                                                <img src="{{ asset('img/' . $dt->gambarb) }}" width="100"
+                                                    height="100">;
+                                                <?php
+                                                }else{
+                                                    ?>
+                                                {{ $dt->b }}
+                                                <?php
+                                                }
+                                                ?>
+                                            </div>
+                                        </td>
+                                        <td class="px-6 py-4">
+                                            <div class="text-xs text-gray-900">
+                                                <?php
+                                                if($dt->gambarc != '-'){
+                                                ?>
+                                                <img src="{{ asset('img/' . $dt->gambarc) }}" width="100"
+                                                    height="100">;
+                                                <?php
+                                                }else{
+                                                    ?>
+                                                {{ $dt->c }}
+                                                <?php
+                                                }
+                                                ?>
+                                            </div>
+                                        </td>
+                                        <td class="px-6 py-4">
+                                            <div class="text-xs text-gray-900">
+                                                <?php
+                                                if($dt->gambard != '-'){
+                                                ?>
+                                                <img src="{{ asset('img/' . $dt->gambard) }}" width="100"
+                                                    height="100">;
+                                                <?php
+                                                }else{
+                                                    ?>
+                                                {{ $dt->d }}
+                                                <?php
+                                                }
+                                                ?>
                                             </div>
                                         </td>
                                     </tr>

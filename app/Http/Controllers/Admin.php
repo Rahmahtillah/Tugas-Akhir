@@ -6,6 +6,8 @@ use App\Models\Jurusan;
 use App\Models\Prodi;
 use App\Models\User;
 use App\Models\mahasiswa;
+use App\Models\Hasilpengujian;
+use App\Models\Pengujian;
 use Illuminate\Http\Request;
 use Illuminate\Validation\Rules;
 use Illuminate\Support\Facades\DB;
@@ -45,6 +47,7 @@ class Admin extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
+
     public function store(Request $request)
     {
         $request->validate([
@@ -112,6 +115,7 @@ class Admin extends Controller
      */
     public function update(Request $request, $id)
     {
+        // dd($request);
         mahasiswa::where('id',$id)->update([
             'nama' => $request->nama,
             'nim' => $request->nim,
@@ -144,17 +148,25 @@ class Admin extends Controller
     }
 
     public function pengujian(){
-        $verbal = DB::table('datasets')->where('Hasil','like','%Verbal%')->limit(5)->get();
-        $numerik = DB::table('datasets')->where('Hasil','like','%Numerik%')->limit(5)->get();
+        $verbal = Pengujian::where('tipe','verbal')->get();
+        $bahasa = Pengujian::where('tipe','bahasa')->get();
+        $numerik = Pengujian::where('tipe','numerik')->get();
+        $skolastik = Pengujian::where('tipe','skolastik')->get();
+        $abstrak = Pengujian::where('tipe','abstrak')->get();
+        $spasial = Pengujian::where('tipe','spasial')->get();
+
+        // dd($verbal);
+        // dd($numerik);
         // $data = DB::table('datasets')->where('Hasil','like','%%')->limit(5)->get();
         // $data = DB::table('datasets')->where('Hasil','like','%%')->limit(5)->get();
         // $data = DB::table('datasets')->where('Hasil','like','%%')->limit(5)->get();
-        return view('admin.pengujian', compact('verbal', 'numerik'));
+        return view('admin.pengujian', compact('verbal','bahasa','numerik','skolastik','abstrak','spasial'));
     }
 
     public function histori(){
         $title = "Histori";
-        $data = DB::table('hasilpengujians')->get();
+        $data = Hasilpengujian::get();
+        // dd($data);
         return view('admin.histori', compact('data', 'title'));
     }
     public function delete($id){

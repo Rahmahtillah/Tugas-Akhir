@@ -47,7 +47,7 @@ Route::prefix('user')->group(function(){
         Route::get('/uji/mulai/{id}',[Data::class, 'test'])->name('test');
         Route::get('/profile', [Data::class, 'profile'])->name('profile');
         Route::get('/histori', [Data::class, 'histori'])->name('histori');
-        Route::post('/edit/{id}', [Data::class, 'update'])->name('edit');
+        Route::post('/edit', [Data::class, 'update'])->name('edit');
     });
 
 });

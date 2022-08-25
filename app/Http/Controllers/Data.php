@@ -24,7 +24,7 @@ class Data extends Controller
     public function profile(){
         $id = Auth::user()->id;
 
-        $data = mahasiswa::where('id', $id)->get();
+        $data = mahasiswa::where('id', $id)->first();
         // $data = DB::table('hasilpengujians')->where('id', $id)->get();
         // dd($data->user);
         return view('user.profile', compact('data'));
@@ -199,7 +199,8 @@ class Data extends Controller
         session()->put('abstrak', '');
        return redirect(route('test', $id));
     }
-    public function update(Request $request, $id){
+    public function update(Request $request){
+        dd($request);
         $data = User::find($id);
         $data->name = $request->input('nama');
         $data->nim = $request->input('nim');
