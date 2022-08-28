@@ -20,7 +20,7 @@
             <div class="border rounded-lg shadow-purple-200 shadow-lg">
 
                 {{-- @foreach ($data as $i => $dt) --}}
-                <form action="#" method="post">
+                <form action="{{ url('user/edit/') }}" method="post">
                     @csrf
                     <div class="flex flex-wrap">
                         <div class="w-full justify-center px-20 py-10 relative lg:w-1/2">
@@ -37,15 +37,34 @@
                                         class="col-start-2 col-span-2 py-2 bg-gray-200 border-0 rounded-md">
                                 </div>
                                 <div class="grid grid-cols-3 gap-2">
-                                    <h2 class="col-start-1 self-center">Prodi</h2>
-                                    <input type="text" name="prodi" id="prodi" value="{{ $data->prodi->nama }}"
+                                    <h2 class="col-start-1 self-center">Jenis Kelamin</h2>
+                                    <select name="jeniskelamin" id="jk"
                                         class="col-start-2 col-span-2 py-2 bg-gray-200 border-0 rounded-md">
+                                        <option value="{{ $data->jeniskelamin }}">{{ $data->jeniskelamin }}</option>
+                                        <option value="Laki-Laki">Laki-Laki</option>
+                                        <option value="Perempuan">Perempuan</option>
+                                    </select>
                                 </div>
                                 <div class="grid grid-cols-3 gap-2">
                                     <h2 class="col-start-1 self-center">Jurusan</h2>
-                                    <input type="text" name="jurusan" id="jurusan"
-                                        value="{{ $data->jurusan->nama }}"
+                                    <select name="jurusan" id="prodi"
                                         class="col-start-2 col-span-2 py-2 bg-gray-200 border-0 rounded-md">
+                                        <option value="{{ $data->jurusan_id }}">{{ $data->jurusan->nama }}</option>
+                                        @foreach ($jurusan as $j)
+                                            <option value="{{ $j->id }}">{{ $j->nama }}</option>
+                                        @endforeach
+                                    </select>
+                                </div>
+
+                                <div class="grid grid-cols-3 gap-2">
+                                    <h2 class="col-start-1 self-center">Prodi</h2>
+                                    <select name="prodi" id="prodi"
+                                        class="col-start-2 col-span-2 py-2 bg-gray-200 border-0 rounded-md">
+                                        <option value="{{ $data->prodi_id }}">{{ $data->prodi->nama }}</option>
+                                        @foreach ($prodi as $p)
+                                            <option value="{{ $p->id }}">{{ $p->nama }}</option>
+                                        @endforeach
+                                    </select>
                                 </div>
                             </div>
                         </div>
@@ -62,6 +81,11 @@
                                         class="col-start-2 col-span-2 py-2 bg-gray-200 border-0 rounded-md">
                                 </div>
                                 <div class="grid grid-cols-3 gap-2">
+                                    <h2 class="col-start-1 self-center">Tanggal Lahir</h2>
+                                    <input type="date" name="tgllahir" id="tgllahir" value="{{ $data->tgllahir }}"
+                                        class="col-start-2 col-span-2 py-2 bg-gray-200 border-0 rounded-md">
+                                </div>
+                                <div class="grid grid-cols-3 gap-2">
                                     <h2 class="col-start-1 self-center">Email</h2>
                                     <input type="text" name="email" id="email" value="{{ $data->email }}"
                                         class="col-start-2 col-span-2 py-2 bg-gray-200 border-0 rounded-md">
@@ -69,8 +93,8 @@
                                 <div class="grid grid-cols-3 gap-2">
                                     <button type="submit" class="shadow-lg py-1 rounded-lg text-white"
                                         style="background-color: rgba(64, 94, 79, 1)">Simpan</button>
-                                    <button class="shadow-lg py-1 rounded-lg text-white"
-                                        style="background-color: rgba(64, 94, 79, 1)">Clear</button>
+                                    {{-- <button class="shadow-lg py-1 rounded-lg text-white"
+                                        style="background-color: rgba(64, 94, 79, 1)">Clear</button> --}}
                                 </div>
                             </div>
                         </div>

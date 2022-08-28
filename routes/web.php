@@ -41,6 +41,8 @@ Route::prefix('user')->group(function(){
         Route::get('/', [Data::class, 'index']);
         Route::get('/hasil', [Data::class, 'hasil'])->name('hasil');
         Route::get('/hasilpengujian', [Data::class, 'tampilhasil'])->name('tampilhasil');
+        Route::get('/printpengujian', [Data::class, 'printhasil'])->name('printhasil');
+
         Route::get('/uji', [Data::class, 'uji'])->name('uji');
         Route::post('/hitung/{id}', [Data::class, 'upload'])->name('hitung');
         Route::get('/mulaiuji/{id}', [Data::class, 'destroyss'])->name('mulai');

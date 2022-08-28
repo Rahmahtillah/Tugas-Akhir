@@ -22,13 +22,19 @@
                     @csrf
                     @foreach ($soal as $i => $s)
                         <div class="px-4 py-2">
+                            Soal : {{ $verbal }}
+                            Soal : {{ $skolastik }}
+                            Soal : {{ $numerik }}
+                            Soal : {{ $spasial }}
+                            Soal : {{ $bahasa }}
+                            Soal : {{ $abstrak }}
                             <h2 class="font-serif">
                                 {{ ++$i }}
                                 {{ $s->soal }}
                                 <?php
                                 if($s->gambar != '-'){
                                 ?>
-                                <img src="{{ asset('img/' . $s->gambar) }}" width="280" height="280">;
+                                <img src="{{ asset('img/' . $s->gambar) }}" width="280" height="280">
                                 <?php
                                 }
                                 ?>
@@ -44,7 +50,7 @@
                                 <?php
                                 if($s->gambara != '-'){
                                 ?>
-                                <img src="{{ asset('img/' . $s->gambara) }}" width="100" height="100">;
+                                <img src="{{ asset('img/' . $s->gambara) }}" width="100" height="100">
                                 <?php
                                 }else{
                                     ?>
@@ -59,7 +65,7 @@
                                 <?php
                                 if($s->gambarb != '-'){
                                 ?>
-                                <img src="{{ asset('img/' . $s->gambarb) }}" width="100" height="100">;
+                                <img src="{{ asset('img/' . $s->gambarb) }}" width="100" height="100">
                                 <?php
                                 }else{
                                     ?>
@@ -74,7 +80,7 @@
                                 <?php
                                 if($s->gambarc != '-'){
                                 ?>
-                                <img src="{{ asset('img/' . $s->gambarc) }}" width="100" height="100">;
+                                <img src="{{ asset('img/' . $s->gambarc) }}" width="100" height="100">
                                 <?php
                                 }else{
                                     ?>
@@ -89,7 +95,7 @@
                                 <?php
                                 if($s->gambard != '-'){
                                 ?>
-                                <img src="{{ asset('img/' . $s->gambard) }}" width="100" height="100">;
+                                <img src="{{ asset('img/' . $s->gambard) }}" width="100" height="100">
                                 <?php
                                 }else{
                                     ?>

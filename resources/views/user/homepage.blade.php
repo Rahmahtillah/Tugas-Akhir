@@ -45,9 +45,6 @@
                                     <th class="px-6 py-2 text-xs text-white">
                                         Hasil Pengujian
                                     </th>
-                                    <th class="px-6 py-2 text-xs text-white">
-                                        Aksi
-                                    </th>
                                 </tr>
                             </thead>
                             @foreach ($data as $i => $dt)
@@ -65,15 +62,9 @@
                                             {{ $dt->mahasiswa->nim }}
                                         </td>
                                         <td class="px-6 py-4 text-sm text-gray-500">
-                                            {{ $dt->hasil }}
+                                            {{ $dt->verbal }}, {{ $dt->abstrak }}, {{ $dt->bahasa }},
+                                            {{ $dt->skolastik }}, {{ $dt->spasial }}, {{ $dt->numerik }}
                                         </td>
-                                        </td>
-                                        <td class="px-6 py-4">
-                                            <a href="#"
-                                                class="inline-block text-white py-1 px-2 rounded-lg text-center border"
-                                                style="background-color: rgba(64, 94, 79, 1)">
-                                                Detail
-                                            </a>
                                         </td>
                                     </tr>
                                 </tbody>

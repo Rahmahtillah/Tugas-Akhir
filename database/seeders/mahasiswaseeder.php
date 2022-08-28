@@ -16,6 +16,7 @@ class mahasiswaseeder extends Seeder
     {
         mahasiswa::create([
             'nama' => 'admin',
+            'id_user' => 1,
             'nim' => '1',
             'prodi_id' => '1',
             'jurusan_id' => '1',
@@ -27,6 +28,7 @@ class mahasiswaseeder extends Seeder
         ]);
         mahasiswa::create([
             'nama' => 'user',
+            'id_user' => 2,
             'nim' => '1857301035',
             'prodi_id' => '1',
             'jurusan_id' => '1',

@@ -7,27 +7,37 @@ use App\Models\Datates;
 use App\Models\Soal;
 use App\Models\User;
 use App\Models\mahasiswa;
+use App\Models\Prodi;
+use App\Models\Jurusan;
 use App\Models\Hasilpengujian;
+use App\Models\Jenisbakat;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
+
+use PDF;
 
 class Data extends Controller
 {
     public function index(){
         $id = Auth::user()->id;
         // dd($id);
-        $data = Hasilpengujian::where('id_user', $id)->get();
+        $mahasiswa = Mahasiswa::where('id_user',$id)->first();
+        // dd($mahasiswa->id);
+        $data = Hasilpengujian::where('id_user', $mahasiswa->id)->get();
         // dd($data);
+
         return view('user.homepage', compact('data'));
     }
     public function profile(){
         $id = Auth::user()->id;
 
         $data = mahasiswa::where('id', $id)->first();
+        $prodi = Prodi::get();
+        $jurusan = Jurusan::get();
         // $data = DB::table('hasilpengujians')->where('id', $id)->get();
         // dd($data->user);
-        return view('user.profile', compact('data'));
+        return view('user.profile', compact('data','prodi','jurusan'));
     }
 
     public function uji(){
@@ -197,18 +207,23 @@ class Data extends Controller
         session()->put('spasial', '');
         session()->put('bahasa', '');
         session()->put('abstrak', '');
-       return redirect(route('test', $id));
+        return redirect(route('test', $id));
     }
     public function update(Request $request){
-        dd($request);
-        $data = User::find($id);
-        $data->name = $request->input('nama');
+        // dd($request);
+        $id = Auth::user()->id;
+        $mahasiswa = Mahasiswa::where('id_user',$id)->first();
+        // dd($mahasiswa);
+        $data = Mahasiswa::find($mahasiswa->id);
+        $data->nama = $request->input('nama');
         $data->nim = $request->input('nim');
-        $data->jurusan = $request->input('jurusan');
-        $data->prodi = $request->input('prodi');
+        $data->jurusan_id = 1;
+        $data->prodi_id = $request->input('prodi');
         $data->nohp = $request->input('nohp');
         $data->alamat = $request->input('alamat');
         $data->email = $request->input('email');
+        $data->jeniskelamin = $request->input('jeniskelamin');
+        $data->tgllahir = $request->input('tgllahir');
         $data->update();
         return redirect()->back()->with('status','Update Success');
     }
@@ -232,9 +247,22 @@ class Data extends Controller
         $spasial = session()->get('spasial');
         $bahasa = session()->get('bahasa');
         $abstrak = session()->get('abstrak');
+
         $id = Auth::user()->id;
+        // dd($id);
+        // $mahasiswa = Mahasiswa::where('id_user',$id)->first();
+        // dd($mahasiswa->id);
+        // dd($verbal);
+        // dd($numerik);
+        // dd($skolastik);
+        // dd($spasial);
+        // dd($bahasa);
+        // dd($abstrak);
+        // dd($id);
+        $mahasiswa = Mahasiswa::where('id_user',$id)->first();
+        // dd($mahasiswa);
         Hasilpengujian::create([
-            'id_user' => $id,
+            'id_user' => $mahasiswa->id,
             'waktu_uji' => date('H:i:s'),
             'abstrak' => $abstrak,
             'verbal' => $verbal,
@@ -243,14 +271,34 @@ class Data extends Controller
             'skolastik' => $skolastik,
             'numerik' => $numerik
         ]);
-        $data = HasilPengujian::where('id_user', $id)
-        ->limit(1)
-        ->latest()
-        ->get();
+
+        $data = HasilPengujian::where('id_user',$id)->latest()->first();
+        $deskripsi = Jenisbakat::all();
         $id = Auth::User()->email;
         $user = mahasiswa::where('email', $id)->get();
+        // dd(substr(trim($data->abstrak), 0, -1));
+        return view('user.hasil', compact('user','data','deskripsi'));
+    }
 
-        return view('user.hasil', compact('user','data'));
+    public function printhasil(){
+        $id = Auth::User()->id;
+        $data = HasilPengujian::where('id_user',$id)->latest()->first();
+        // dd($data);
+        $deskripsi = Jenisbakat::all();
+        $email = Auth::User()->email;
+        $user = mahasiswa::where('email', $email)->first();
+
+        $pdf = PDF::loadview('user.print', compact('user','data','deskripsi'))->setPaper('A4','potrait');
+        $pdf->getDomPDF()->setHttpContext(
+        stream_context_create([
+                'ssl' => [
+                    'allow_self_signed'=> TRUE,
+                    'verify_peer' => FALSE,
+                    'verify_peer_name' => FALSE,
+                ]
+            ])
+        );
+        return $pdf->download('laporan.pdf');
     }
 
     public function tampil_pdf(){
