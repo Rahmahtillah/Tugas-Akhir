@@ -62,23 +62,47 @@ class Admin extends Controller
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
             'password' => ['required', 'confirmed', Rules\Password::defaults()],
         ]);
-        mahasiswa::create([
-            'nama' => $request->nama,
-            'nim' => $request->nim,
-            'prodi_id' => $request->jurusan_id,
-            'jurusan_id' => $request->jurusan_id,
-            'nohp' => $request->nohp,
-            'alamat' => $request->alamat,
-            'jeniskelamin' => $request->jeniskelamin,
-            'tgllahir' => $request->tgllahir,
-            'email' => $request->email,
-        ]);
+        // dd($request);
+
         User::create([
             'email' => $request->email,
             'isAdmin' => 0,
             'password' => Hash::make($request->password),
         ]);
+        $user = User::orderBy('created_at','desc')->get();
+        // dd(User::orderBy('created_at','desc')->get());
+        // dd($user[0]->id);
+        // $pelanggaran = new Pelanggamahasiswaran;
+        // $pelanggaran->NIM = $request->NIM;
+        // $pelanggaran->bukti = $request->bukti;
+
+        // $pelanggaran->save();
+        $mahasiswa = new Mahasiswa;
+        $mahasiswa->nama = $request->nama;
+        $mahasiswa->id_user = $user[0]->id;
+        $mahasiswa->nim = $request->nim;
+        $mahasiswa->prodi_id = $request->prodi_id;
+        $mahasiswa->jurusan_id = $request->jurusan_id;
+        $mahasiswa->nohp = $request->nohp;
+        $mahasiswa->alamat = $request->alamat;
+        $mahasiswa->jeniskelamin = $request->jeniskelamin;
+        $mahasiswa->tgllahir = $request->tgllahir;
+        $mahasiswa->email = $request->email;
+
+        $mahasiswa->save();
+
         return redirect(route('student'));
+        // dd('masok');
+        // if($mahasiswa){
+        //     echo('berhasil');
+        //     dd('berhasil');
+
+        // }else{
+        //     echo('gagal');
+        //     dd('gagal');
+        // }
+
+
     }
 
     /**

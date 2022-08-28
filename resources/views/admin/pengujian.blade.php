@@ -22,7 +22,7 @@
         <div class="flex mx-auto mt-5 w-full">
             <div class="w-full rounded-3xl overflow-hidden shadow-lg">
                 <div class="text-white" style="background-color: rgba(64, 94, 79, 1)">
-                    <h1 class="py-2 px-4">Soal Training Verbal</h1>
+                    <h1 class="py-2 px-4">Soal Bakat Verbal</h1>
                 </div>
                 <div class="w-full overflow-auto">
                     <div class="mx-10 py-2">
@@ -99,7 +99,7 @@
         <div class="flex mx-auto mt-10 w-full">
             <div class="w-full rounded-3xl overflow-hidden shadow-lg">
                 <div class="text-white" style="background-color: rgba(64, 94, 79, 1)">
-                    <h1 class="py-2 px-4">Soal Training Bahasa</h1>
+                    <h1 class="py-2 px-4">Soal Bakat Bahasa</h1>
                 </div>
                 <div class="w-full overflow-auto">
                     <div class="mx-10 py-2">
@@ -176,7 +176,7 @@
         <div class="flex mx-auto mt-10 w-full">
             <div class="w-full rounded-3xl overflow-hidden shadow-lg">
                 <div class="text-white" style="background-color: rgba(64, 94, 79, 1)">
-                    <h1 class="py-2 px-4">Soal Training Numerik</h1>
+                    <h1 class="py-2 px-4">Soal Bakat Numerik</h1>
                 </div>
                 <div class="w-full overflow-auto">
                     <div class="mx-10 py-2">
@@ -253,7 +253,7 @@
         <div class="flex mx-auto mt-10 w-full">
             <div class="w-full rounded-3xl overflow-hidden shadow-lg">
                 <div class="text-white" style="background-color: rgba(64, 94, 79, 1)">
-                    <h1 class="py-2 px-4">Soal Training skolastik</h1>
+                    <h1 class="py-2 px-4">Soal Bakat skolastik</h1>
                 </div>
                 <div class="w-full overflow-auto">
                     <div class="mx-10 py-2">
@@ -331,7 +331,7 @@
         <div class="flex mx-auto mt-10 w-full">
             <div class="w-full rounded-3xl overflow-hidden shadow-lg">
                 <div class="text-white" style="background-color: rgba(64, 94, 79, 1)">
-                    <h1 class="py-2 px-4">Soal Training Abstrak</h1>
+                    <h1 class="py-2 px-4">Soal Bakat Abstrak</h1>
                 </div>
                 <div class="w-full overflow-auto">
                     <div class="mx-10 py-2">
@@ -460,7 +460,7 @@
         <div class="flex mx-auto mt-10 w-full">
             <div class="w-full rounded-3xl overflow-hidden shadow-lg">
                 <div class="text-white" style="background-color: rgba(64, 94, 79, 1)">
-                    <h1 class="py-2 px-4">Soal Training Spasial</h1>
+                    <h1 class="py-2 px-4">Soal Bakat Spasial</h1>
                 </div>
                 <div class="w-full overflow-auto">
                     <div class="mx-10 py-2">

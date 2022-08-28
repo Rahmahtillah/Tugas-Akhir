@@ -12,7 +12,81 @@
     <section id="header">
         @include('partials.headeradmin')
     </section>
-
+    @php
+        function bulan_indo($inp)
+        {
+            $bulan = [
+                1 => 'Januari',
+                'Februari',
+                'Maret',
+                'April',
+                'Mei',
+                'Juni',
+                'Juli',
+                'Agustus',
+                'September',
+                'Oktober',
+                'November',
+                'Desember',
+            ];
+            // variabel pecahkan 0 = tanggal
+            // variabel pecahkan 1 = bulan
+            // variabel pecahkan 2 = tahun
+            return $bulan[(int) $inp];
+        }
+        function tgl_indo($tanggal)
+        {
+            $bulan = [
+                1 => 'Januari',
+                'Februari',
+                'Maret',
+                'April',
+                'Mei',
+                'Juni',
+                'Juli',
+                'Agustus',
+                'September',
+                'Oktober',
+                'November',
+                'Desember',
+            ];
+            $pecahkan = explode('-', $tanggal);
+            // variabel pecahkan 0 = tanggal
+            // variabel pecahkan 1 = bulan
+            // variabel pecahkan 2 = tahun
+            return $pecahkan[2] . ' ' . $bulan[(int) $pecahkan[1]] . ' ' . $pecahkan[0];
+        }
+        function hari($hari)
+        {
+            switch ($hari) {
+                case 'Sun':
+                    $hari_ini = 'Minggu';
+                    break;
+                case 'Mon':
+                    $hari_ini = 'Senin';
+                    break;
+                case 'Tue':
+                    $hari_ini = 'Selasa';
+                    break;
+                case 'Wed':
+                    $hari_ini = 'Rabu';
+                    break;
+                case 'Thu':
+                    $hari_ini = 'Kamis';
+                    break;
+                case 'Fri':
+                    $hari_ini = 'Jumat';
+                    break;
+                case 'Sat':
+                    $hari_ini = 'Sabtu';
+                    break;
+                default:
+                    $hari_ini = 'Tidak di ketahui';
+                    break;
+            }
+            return $hari_ini;
+        }
+    @endphp
     <section>
         <div class="container flex mx-auto ">
             <div class="flex justify-center w-full py-4 border-b-4 border-black">
@@ -20,10 +94,11 @@
             </div>
         </div>
         <div class="container flex mx-auto mt-10 mb-10">
-            <div class=" w-full flex flex-wrap justify-between text-white text-2xl font-serif">
-                <div class="shadow-lg rounded-2xl w-80 p-7 relative overflow-hidden" style="background-color: rgba(213, 221, 209, 1)">
+            <div class=" w-full flex flex-row gap-36 justify-between text-white text-2xl font-serif">
+                <div class="shadow-lg rounded-2xl w-1/3 p-7 relative overflow-hidden"
+                    style="background-color: rgba(213, 221, 209, 1)">
                     <div class="w-full flex flex-col space-y-1">
-                        <h2 class="border-b-2 border-black text-black">Mahasiswa</h2>
+                        <h2 class="border-b-2 font-bold border-black text-black">Mahasiswa</h2>
                         <div class="text-black flex flex-wrap items-center space-x-2">
                             <svg xmlns="http://www.w3.org/2000/svg" class="h-10 w-10" viewBox="0 0 20 20"
                                 fill="currentColor">
@@ -36,9 +111,10 @@
                         </div>
                     </div>
                 </div>
-                <div class="shadow-lg rounded-2xl w-80 p-7 bg-purple-400 relative overflow-hidden" style="background-color: rgba(213, 221, 209, 1)">
+                <div class="shadow-lg rounded-2xl w-1/3 p-7 bg-purple-400 relative overflow-hidden "
+                    style="background-color: rgba(213, 221, 209, 1)">
                     <div class="w-full flex flex-col space-y-1">
-                        <h2 class="border-b-2 border-black text-black">Jumlah Pengujian</h2>
+                        <h2 class="border-b-2 font-bold border-black text-black">Jumlah Pengujian</h2>
                         <div class="text-black flex flex-wrap space-x-2">
                             <svg xmlns="http://www.w3.org/2000/svg" class="h-10 w-10" viewBox="0 0 20 20"
                                 fill="currentColor">
@@ -52,11 +128,13 @@
                         </div>
                     </div>
                 </div>
-                <div class="shadow-lg rounded-2xl w-80 p-7 bg-purple-400 relative overflow-hidden" style="background-color: rgba(213, 221, 209, 1)">
+                <div class="shadow-lg rounded-2xl w-1/3 p-7 bg-purple-400 relative overflow-hidden"
+                    style="background-color: rgba(213, 221, 209, 1)">
                     <div class="w-full flex flex-col space-y-1">
                         <?php date_default_timezone_set('Asia/jakarta'); ?>
-                        <h2 class="border-b-2 border-black text-black"><?php echo date('D'); ?> , <?php echo date('j/m/Y'); ?></h2>
-                        <h2 class="text-black"><?php echo date('h:i:s a'); ?></h2>
+                        <h3 class="border-b-2 font-bold border-black text-black">{{ hari(date('D')) }},
+                            {{ tgl_indo(date('Y-m-d')) }} </h3>
+                        <h2 class="text-black"><?php echo date('h:i:s A'); ?></h2>
                     </div>
                 </div>
             </div>

@@ -84,13 +84,15 @@
                         <!-- Password -->
                         <div class="grid grid-cols-5 gap-3 mx-4">
                             <label for="password" class="col-start-1 col-end-2">Password</label>
-                            <input id="password" class="col-start-2 col-end-5 rounded-lg shadow-lg w-full" type="password" name="password" required autocomplete="new-password" />
+                            <input id="password" class="col-start-2 col-end-5 rounded-lg shadow-lg w-full"
+                                type="password" name="password" required autocomplete="new-password" />
                         </div>
 
                         <!-- Confirm Password -->
                         <div class="grid grid-cols-5 gap-3 mx-4">
                             <label for="password_confirmation">Confirm Your Password</label>
-                            <input id="password_confirmation" class="col-start-2 col-end-5 rounded-lg shadow-lg w-full" type="password" name="password_confirmation" required />
+                            <input id="password_confirmation" class="col-start-2 col-end-5 rounded-lg shadow-lg w-full"
+                                type="password" name="password_confirmation" required />
                         </div>
                         <div class="flex justify-end py-2">
                             <button type="submit" class="py-1 px-5 rounded-lg shadow-lg text-white hover:text-black"

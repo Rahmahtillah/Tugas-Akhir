@@ -22,7 +22,7 @@ class mahasiswaseeder extends Seeder
             'jurusan_id' => '1',
             'nohp' => '1',
             'alamat' => 'admin',
-            'tgllahir' => '6 juli 2000',
+            'tgllahir' => '2000-07-06',
             'jeniskelamin' => 'Laki-laki',
             'email' => 'admin@gmail.com',
         ]);
@@ -34,7 +34,7 @@ class mahasiswaseeder extends Seeder
             'jurusan_id' => '1',
             'nohp' => '082382898960',
             'alamat' => 'kpjb',
-            'tgllahir' => '6 juli 2000',
+            'tgllahir' => '2000-07-06',
             'jeniskelamin' => 'Laki-laki',
             'email' => 'user@gmail.com',
         ]);

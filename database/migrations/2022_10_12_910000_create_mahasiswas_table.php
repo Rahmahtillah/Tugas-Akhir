@@ -24,7 +24,7 @@ return new class extends Migration
             $table->string('nohp');
             $table->string('alamat');
             $table->string('jeniskelamin');
-            $table->string('tgllahir');
+            $table->date('tgllahir');
             $table->string('email');
             $table->timestamps();
         });

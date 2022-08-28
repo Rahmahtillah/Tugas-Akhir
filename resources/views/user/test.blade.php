@@ -18,16 +18,11 @@
         </div>
         <div class="container my-8 mx-auto">
             <div class="border shadow-purple-200 rounded-lg shadow-lg">
+
                 <form action="{{ route('hitung', $id + 1) }}" method="POST">
                     @csrf
                     @foreach ($soal as $i => $s)
                         <div class="px-4 py-2">
-                            Soal : {{ $verbal }}
-                            Soal : {{ $skolastik }}
-                            Soal : {{ $numerik }}
-                            Soal : {{ $spasial }}
-                            Soal : {{ $bahasa }}
-                            Soal : {{ $abstrak }}
                             <h2 class="font-serif">
                                 {{ ++$i }}
                                 {{ $s->soal }}
@@ -74,36 +69,41 @@
                                 }
                                 ?>
                             </div>
-                            <div class="form-check space-x-2">C
-                                <input type="radio" name="pilihan[{{ $s->id }}]" id="{{ $s->id }}"
-                                    value="{{ $s->c }}">
-                                <?php
-                                if($s->gambarc != '-'){
-                                ?>
-                                <img src="{{ asset('img/' . $s->gambarc) }}" width="100" height="100">
-                                <?php
-                                }else{
+                            {{-- @php
+                                dd($s->tipe);
+                            @endphp --}}
+                            @if ($s->tipe != 'bahasa')
+                                <div class="form-check space-x-2">C
+                                    <input type="radio" name="pilihan[{{ $s->id }}]" id="{{ $s->id }}"
+                                        value="{{ $s->c }}">
+                                    <?php
+                                    if($s->gambarc != '-'){
                                     ?>
-                                {{ $s->c }}
-                                <?php
-                                }
-                                ?>
-                            </div>
-                            <div class="form-check space-x-2">D
-                                <input type="radio" name="pilihan[{{ $s->id }}]" id="{{ $s->id }}"
-                                    value="{{ $s->d }}">
-                                <?php
-                                if($s->gambard != '-'){
-                                ?>
-                                <img src="{{ asset('img/' . $s->gambard) }}" width="100" height="100">
-                                <?php
-                                }else{
+                                    <img src="{{ asset('img/' . $s->gambarc) }}" width="100" height="100">
+                                    <?php
+                                    }else{
+                                        ?>
+                                    {{ $s->c }}
+                                    <?php
+                                    }
                                     ?>
-                                {{ $s->d }}
-                                <?php
-                                }
-                                ?>
-                            </div>
+                                </div>
+                                <div class="form-check space-x-2">D
+                                    <input type="radio" name="pilihan[{{ $s->id }}]" id="{{ $s->id }}"
+                                        value="{{ $s->d }}">
+                                    <?php
+                                    if($s->gambard != '-'){
+                                    ?>
+                                    <img src="{{ asset('img/' . $s->gambard) }}" width="100" height="100">
+                                    <?php
+                                    }else{
+                                        ?>
+                                    {{ $s->d }}
+                                    <?php
+                                    }
+                                    ?>
+                                </div>
+                            @endif
                         </div>
                     @endforeach
                     <div class="my-4 mx-4 flex justify-end">
